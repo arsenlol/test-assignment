@@ -1,0 +1,9 @@
+<section fxLayout="column" fxLayoutGap="10px">
+  <cart-item
+    *ngFor="let item of cartItems"
+    [cartItem]="item"
+    (addOne)="addOne($event)"
+    (removeOne)="removeOne($event)"
+    (delete)="deleteItem($event)"
+  ></cart-item>
+</section>

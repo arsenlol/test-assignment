@@ -1,0 +1,12 @@
+<section
+  *ngIf="characters.length"
+  fxLayout="row wrap"
+  fxLayoutAlign="space-around center"
+  fxLayoutGap="10px"
+>
+  <character-list-item
+    *ngFor="let character of characters"
+    [character]="character"
+    (characterClick)="onCharacterClick($event)"
+  ></character-list-item>
+</section>

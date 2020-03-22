@@ -1,0 +1,10 @@
+<figure class="character-item" (click)="onCharacterClick()">
+  <sale-ribbon *ngIf="character.sale" [sale]="character.sale"></sale-ribbon>
+  <div class="character-wrapper">
+    <img [src]="character.image | urlSanitizer" alt="{{character.name}}" class="character-bg" />
+    <div class="character-description" fxLayout="column" fxLayoutAlign="end center" fxLayoutGap="7px">
+      <div>{{character.name | uppercase}}</div>
+      <div class="character-price">{{character.price | currency: "EUR"}}</div>
+    </div>
+  </div>
+</figure>

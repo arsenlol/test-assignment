@@ -1,0 +1,20 @@
+<section class="cart-item" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+    <div fxLayout="row" fxLayoutGap="10px">
+        <img [src]="character.image | urlSanitizer" alt="{{ character.name }}" class="cart-item-image" />
+        <div>{{ character.name | uppercase }}</div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="cart-item-col">Price: {{ character.price | currency: 'EUR' }}</div>
+        <div class="cart-item-col">Discount: {{ character.sale }}%</div>
+        <div>Final: {{ character.priceWithDiscount | currency: 'EUR' }}</div>
+        <div class="cart-item-col" fxLayout="column" fxLayoutGap="5px">
+          <button (click)="onAddOne()">+ 1</button>
+          <button (click)="onRemoveOne()">- 1</button>
+          <button (click)="onDelete()">Delete</button>
+        </div>
+        <div class="cart-item-col">x {{ cartItem.count }}</div>
+        <div class="cart-item-col" fxLayout="row" fxLayoutAlign="space-between center">
+            <span>To pay:</span><span>{{ sum | currency: 'EUR' }}</span>
+        </div>
+    </div>
+</section>

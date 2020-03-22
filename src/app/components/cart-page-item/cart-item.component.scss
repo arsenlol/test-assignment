@@ -1,0 +1,21 @@
+@import '../../../variables';
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+}
+
+.sum {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 1.5rem;
+    width: 100px;
+    text-align: center;
+}
+.cart-item-col {
+    width: 15%;
+    min-width: 100px;
+    text-align: left;
+}

@@ -1,0 +1,13 @@
+<h1>Cart Items</h1>
+<hr>
+<ng-container *ngIf="(cart$ | async).length">
+  <cart-items-list [cartItems]="cart$ | async">
+  </cart-items-list>
+  <hr>
+  <div class="total">Total: {{cartPrice$ | async | currency: 'EUR'}}</div>
+  <hr>
+  <br>
+  <br>
+  <payment-form (onSubmit)="submit()"></payment-form>
+</ng-container>
+<h3 *ngIf="!(cart$ | async).length">You dont have any items in a cart yet.</h3>

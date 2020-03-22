@@ -1,0 +1,20 @@
+<h1>{{ character.name }}</h1>
+<div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutAlign="end start" fxLayoutGap="7px">
+        <div>Status: {{ character.status }}</div>
+        <div>Species: {{ character.species }}</div>
+        <div>Gender: {{ character.gender }}</div>
+    </div>
+    <div>
+        <div class="character-price">{{ character.price | currency: 'EUR' }}</div>
+    </div>
+    <div>
+        <img [src]="character.image | urlSanitizer" alt="{{ character.name }}" class="character-details-image" />
+    </div>
+</div>
+<hr />
+<div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+  <div>Is added to cart: {{ this.isAddedToCart }}</div>
+  <button (click)="addToCart()">{{this.isAddedToCart ? 'Add one more' : 'Add to Cart'}}</button>
+  <div *ngIf="this.isAddedToCart">Quantity in cart: {{ this.countInCart }}</div>
+</div>

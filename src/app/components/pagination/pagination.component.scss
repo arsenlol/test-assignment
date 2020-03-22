@@ -1,0 +1,19 @@
+.pages-row {
+    font-size: 15px;
+    span {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid #aaa;
+        &.active {
+            text-decoration: underline;
+        }
+        &.disabled {
+            pointer-events: none;
+            background: #ccc;
+        }
+    }
+}

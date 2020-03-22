@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayoutAlign="row" fxLayoutGap="10px" class="pages-row">
+    <span [ngClass]="{disabled: !isStartActive}" (click)="navigateToPage(1)"> << </span>
+    <span [ngClass]="{disabled: !isPreviousActive}" (click)="navigateToPage(currentPage - 1)"> < </span>
+    <span *ngFor="let page of shownPages" (click)="navigateToPage(page)" [ngClass]="{active: isPageActive(page)}">
+      {{page}}
+    </span>
+    <span [ngClass]="{disabled: !isNextActive}" (click)="navigateToPage(currentPage + 1)"> > </span>
+    <span [ngClass]="{disabled: !isEndActive}" (click)="navigateToPage(pagesCount)"> >> </span>
+  </div>
+</div>

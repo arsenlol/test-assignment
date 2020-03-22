@@ -1,0 +1,57 @@
+<h2>Payment form</h2>
+<form [formGroup]="paymentForm" class="payment-form" fxLayout="column" fxLayoutGap="10px">
+  <div class="card-holder-name">
+    <label>Cardholder name</label>
+    <div>
+      <input type="text" formControlName="cardHolderName" placeholder="Ivan Ivanov">
+    </div>
+    <div class="errors" *ngIf="cardHolderName.touched && cardHolderName.errors">
+      <div *ngIf="cardHolderName.errors.required">* Cardholder name is required</div>
+    </div>
+  </div>
+  <div class="card-number">
+    <label>Card number</label>
+    <div>
+      <input type="text" maxLength="16" inputmode="numeric" numbersOnly formControlName="cardNumber" placeholder="0000 0000 0000 0000">
+    </div>
+    <div class="errors" *ngIf="cardNumber.touched && cardNumber.errors">
+      <div *ngIf="cardNumber.errors.required">* Card number is required</div>
+      <div *ngIf="cardNumber.errors.maxlength || cardNumber.errors.minlength">* Card number must contain 16 digits</div>
+    </div>
+  </div>
+  <div class="expires">
+    <label>Expires</label>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <div>
+        <label>Month</label>
+        <div>
+          <select formControlName="expiresMonth" placeholder="Month">
+            <option *ngFor="let month of months" value="{{month}}">{{month}}</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label>Year</label>
+        <div>
+          <select formControlName="expiresYear" placeholder="Year">
+            <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cvv">
+    <label>CVV</label>
+    <div>
+      <input type="password" inputmode="numeric" maxLength="3" numbersOnly formControlName="cvv" placeholder="000">
+    </div>
+    <div class="errors" *ngIf="cvv.touched && cvv.errors">
+      <div *ngIf="cvv.errors.required">* CVV is required</div>
+      <div *ngIf="cvv.errors.maxlength || cvv.errors.minlength">* CVV must contain 3 digits</div>
+    </div>
+  </div>
+  <div class="error">
+    <div *ngFor="let error of paymentForm.errors">{{error}}</div>
+  </div>
+  <button [disabled]="paymentForm.invalid" (click)="submit()">Submit payment</button>
+</form>
