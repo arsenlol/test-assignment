@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
-import { MainComponent } from './containers/main/main.component'
 import { CharactersResolverService } from './services/characters-resolver.service'
 import { CharacterDetailsResolverService } from './services/character-details-resolver.service'
 import { CharactersListPageComponent } from './pages/characters-list-page/characters-list-page.component'
@@ -11,38 +10,32 @@ import { PurchaseSuccessPageComponent } from './pages/purchase-success-page-comp
 const routes: Routes = [
     {
         path: '',
-        component: MainComponent,
-        children: [
-            {
-                path: '',
-                redirectTo: 'characters',
-                pathMatch: 'full',
-            },
-            {
-                path: 'characters',
-                component: CharactersListPageComponent,
-                resolve: {
-                    characters: CharactersResolverService,
-                },
-                runGuardsAndResolvers: 'paramsOrQueryParamsChange',
-            },
-            {
-                path: 'characters/:id',
-                component: CharacterDetailsPageComponent,
-                resolve: {
-                    character: CharacterDetailsResolverService,
-                },
-            },
-            {
-                path: 'cart',
-                component: CartPageComponent,
-            },
-            {
-                path: 'success',
-                component: PurchaseSuccessPageComponent,
-            },
-        ],
+        redirectTo: 'characters',
+        pathMatch: 'full',
     },
+    {
+        path: 'characters',
+        component: CharactersListPageComponent,
+        resolve: {
+            characters: CharactersResolverService,
+        },
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+    },
+    {
+        path: 'characters/:id',
+        component: CharacterDetailsPageComponent,
+        resolve: {
+            character: CharacterDetailsResolverService,
+        },
+    },
+    {
+        path: 'cart',
+        component: CartPageComponent,
+    },
+    {
+        path: 'success',
+        component: PurchaseSuccessPageComponent,
+    }
 ]
 
 @NgModule({
