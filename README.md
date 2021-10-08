@@ -1,3 +1,5 @@
+Angular app with list of items fetched from https://rickandmortyapi.com/api and shopping cart
+
 # Test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
